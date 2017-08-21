@@ -1,20 +1,24 @@
-Instructions for running client/server code:
+### Program Description
 
+- This repo contains code for a server (which is always on) and a client (which connects to the server). 
+- The server code was written in C. The client code was written in Python. 
+- The server-client communication is over a TCP connection, implemented using the Sockets API. 
+
+### Instructions for running client/server code:
 
 There are two files, clientserve.py and clientchat.c.
 
-
-Testing on flip1.engr.oregonstate.edu… make sure both terminal A and B are running on flip1.
+Both client and server must be running on same server (or localhost).
 On Terminal A:
-- start the server first: python clientserve.py 43341
+- start the server first: python clientserve.py <PORT NUM>
 
 
 On Terminal B:
 - compile the C, client code: gcc chatclient.c -o chatclient
-- run the chat client: ./chatclient 172.0.0.1 43341
+- run the chat client: ./chatclient 172.0.0.1 <PORT NUM>
 
 
-A message will appear on both the client and server terminals saying “Successfully connected on port 43341”
+A message will appear on both the client and server terminals saying “Successfully connected on port <PORT NUM>”
 
 
 The chatclient will have command of input. He/She can send a message of up to 500 characters. Once they hit enter, the message is sent to server and server will have command.
@@ -27,8 +31,3 @@ This process repeats until either host A or B types \quit.
 
 
 Once \quit is hit, the client program is terminated but the server code lives on, waiting for the next client connection.
-
-
-References:
-http://www.thegeekstuff.com/2011/12/c-socket-programming/?utm_source=feedburner
-https://www.tutorialspoint.com/python/python_networking.htm
